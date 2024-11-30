@@ -54,14 +54,13 @@ export const Tile: React.FC<TileProps> = ({ value, id, state }) => {
         className={`tile-${id} p-4 m-1 rounded-md size-32 flex items-center justify-center
                     ${bgColorClass} ${
           value
-            ? `text-white border-slate-950 ${curState} transition-transform duration-1000 ease-in-out`
+            ? `text-white border-slate-950 ${curState} transition-transform duration-1000 ease-in-out shadow-2xl`
             : "border-slate-950"
         }
                 `}
       >
         <p className="font-bold text-4xl ">{value > 0 ? value : ""}</p>
       </div>
-      <div className="absolute left-16">{curState}</div>
     </>
   );
 };

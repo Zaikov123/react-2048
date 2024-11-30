@@ -56,10 +56,10 @@ const Board: React.FC = () => {
 
         newBoard.grid.forEach((row, rowIndex) => {
           row.forEach((tile, colIndex) => {
-            const moveClass = `scale-75 ${determineMoveClass(prevBoard, newBoard, tile.id)}`;
+            const moveClass = `scale-90 ${determineMoveClass(prevBoard, newBoard, tile.id)}`;
             if (moveClass) {
-              console.log(moveClass)
               newTileState[tile.id] = moveClass;
+              setTileState(newTileState);
             }
           });
         });
@@ -69,7 +69,6 @@ const Board: React.FC = () => {
           setIsOver(true);
         }
 
-        setTileState(newTileState);
         return newBoardWithTile;
       });
     }, 50);
@@ -111,7 +110,7 @@ const Board: React.FC = () => {
   return (
     <div className="container bg-slate-300 flex justify-center flex-col align-middle h-screen">
       <h1 className="text-2xl font-bold text-center text-white bg-blue-400 p-2 rounded-lg">
-        Your Score: ${scoreManager.getScore()}
+        Your Score: {scoreManager.getScore()}
       </h1>
       <div className="p-4 bg-slate-600 h-fit w-fit m-auto overflow-hidden">
         {board.grid.map((row: any[], rowIndex: React.Key) => (
